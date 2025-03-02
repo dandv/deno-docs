@@ -197,8 +197,8 @@ This configuration will:
 - will not lint files in the `src/testdata/` directory or any TypeScript files
   in the `src/fixtures/` directory.
 - specifies that the recommended linting rules should be applied,
-- adds the `ban-untagged-todo`
-- removes the `no-unused-vars` rule excluded.
+- adds the `ban-untagged-todo` rule
+- excludeds the `no-unused-vars` rule.
 
 You can find a full list of available linting rules in the
 [List of rules](/lint/) documentation page.
