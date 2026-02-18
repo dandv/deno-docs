@@ -527,11 +527,18 @@ import * as module_2 from "@example/my-package/module2";
 
 ## Permissions
 
-Deno 2.5+ supports storing permission sets in the config file.
+Deno 2.5+ supports storing [permission](/runtime/fundamentals/security/#permissions)
+sets in the config file.
 
 ### Named permissions
 
-Permissions can be defined in key value pairs under the `"permissions"` key:
+Permissions can be defined as key-value pairs under arbitrarily-named
+permission sets under the `"permissions"` key. Within each set,
+
+- the key is the name of a [permission](/runtime/fundamentals/security/#permissions)
+  that would follow `--alllow-` or `--deny-` in the CLI invocation (i.e. `read`,
+  `write`, `net`, `env`, `sys`, `run`, `ffi`, `import`)
+- the value is a string or array of strings representing paths, domains etc.
 
 ```jsonc
 {
@@ -547,7 +554,8 @@ Permissions can be defined in key value pairs under the `"permissions"` key:
 }
 ```
 
-Then used by specifying the `--permission-set=<name>` or `-P=<name>` flag:
+Permission sets can be used by specifying the `--permission-set=<name>` or
+`-P=<name>` flag:
 
 ```sh
 $ deno run -P=read-data main.ts
